@@ -1,0 +1,13 @@
+digraph G { 
+ graph [pad="1" bgcolor="purple:pink" style="filled" margin="0"  penwidth="3"] 
+label = "Nombre Piso: ejemplo01 Codigo Piso: cod11" fontname="Arial Black" fontsize="20pt" 
+node [style = filled shape = box height="1" width="1"] 
+W1[fillcolor= "#000000" fontcolor = "#000000" pos="0,-0!"] 
+B2[fillcolor= "#FFFFFF" fontcolor = "#FFFFFF" pos="1,-0!"] 
+W3[fillcolor= "#000000" fontcolor = "#000000" pos="2,-0!"] 
+B4[fillcolor= "#FFFFFF" fontcolor = "#FFFFFF" pos="3,-0!"] 
+W5[fillcolor= "#FFFFFF" fontcolor = "white" pos="0,-1!"] 
+W6[fillcolor= "#FFFFFF" fontcolor = "white" pos="1,-1!"] 
+W7[fillcolor= "#FFFFFF" fontcolor = "white" pos="2,-1!"] 
+B8[fillcolor= "#FFFFFF" fontcolor = "#FFFFFF" pos="3,-1!"] 
+ } 

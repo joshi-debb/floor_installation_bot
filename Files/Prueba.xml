@@ -1,0 +1,83 @@
+<?xml version='1.0'?>
+<pisosArtesanales>
+    <piso nombre='ejemplo01'>
+    <R> 2 </R>
+    <C> 4 </C>
+    <F> 1 </F>
+    <S> 1 </S>
+        <patrones>
+            <patron codigo='cod11'>WBWBWWWB</patron>
+            <patron codigo='cod12'>BWBWWWWW</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo02'>
+    <R> 6 </R>
+    <C> 6 </C>
+    <F> 3 </F>
+    <S> 1 </S>
+        <patrones>
+            <patron codigo='cod13'>WBWBWWWBWBWBWWWBWBWBWWWBWBWBWWWBBWWB</patron>
+            <patron codigo='cod14'>WBWBWWWBWBWBWWWBBBBBBBBBBBBBBBBBBWWB</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo03'>
+    <R> 3 </R>
+    <C> 3 </C>
+    <F> 500 </F>
+    <S> 20 </S>
+        <patrones>
+            <patron codigo='cod15'>WBWBBBBBB</patron>
+            <patron codigo='cod16'>BWBWWWWWB</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo04'>
+    <R> 4 </R>
+    <C> 4 </C>
+    <F> 60 </F>
+    <S> 20 </S>
+        <patrones>
+            <patron codigo='cod17'>WBWBBBBBWBWBBBBB</patron>
+            <patron codigo='cod18'>BWBWWWWWWBWBBBBB</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo05'>
+    <R> 8 </R>
+    <C> 4 </C>
+    <F> 45 </F>
+    <S> 5 </S>
+        <patrones>
+            <patron codigo='cod19'>WBWBBBBBWBWBBBBBWBWBBBBBWBWBBBBB</patron>
+            <patron codigo='cod20'>BWBWWWWWWBWBBBBBWBWBBBBBWBWBBBBB</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo06'>
+    <R> 6 </R>
+    <C> 4 </C>
+    <F> 60 </F>
+    <S> 8 </S>
+        <patrones>
+            <patron codigo='cod21'>WBWBBBBBWBWBBBBBWBWBBBBB</patron>
+            <patron codigo='cod22'>BWBWWWWWWBWBBBBBWBWBBBBB</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo07'>
+    <R> 1 </R>
+    <C> 8 </C>
+    <F> 15 </F>
+    <S> 6 </S>
+        <patrones>
+            <patron codigo='cod23'>WBWBBBBB</patron>
+            <patron codigo='cod24'>BWBWWWWW</patron>
+        </patrones>
+    </piso>
+    <piso nombre='ejemplo08'>
+    <R> 4 </R>
+    <C> 1 </C>
+    <F> 15 </F>
+    <S> 6 </S>
+        <patrones>
+            <patron codigo='cod25'>WBWB</patron>
+            <patron codigo='cod26'>WWWW</patron>
+        </patrones>
+    </piso>
+</pisosArtesanales>

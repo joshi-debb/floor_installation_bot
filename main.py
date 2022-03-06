@@ -23,9 +23,16 @@ class Boxes_List():   #lista doblemente enlazada
         return new_boxes
 
     def get_Boxs(self, box):
-        tmp = self.box
+        tmp = self.boxes_head
         while tmp != None:
             if tmp.get_Box() == box:
+                return tmp
+            tmp = tmp.getNext_Box()
+    
+    def get_Boxs_By_Pos(self, pos_x, pos_y):
+        tmp = self.boxes_head
+        while tmp != None:
+            if tmp.getPosX_Box() == pos_x and tmp.getPosY_Box() == pos_y:
                 return tmp
             tmp = tmp.getNext_Box()
 
@@ -36,12 +43,12 @@ class Boxes_List():   #lista doblemente enlazada
             tmp = tmp.getNext_Deck()
             count = count + 1
         return count
-    
-    
+
+  
     def show_Boxes2(self):
         tmp = self.boxes_head
         while tmp != None:
-            print('Color:', tmp.getColor_Box(), 'Pos X: ', tmp.getPosX_Box(), 'Pos Y: ' , tmp.getPosY_Box())
+            print('Color:', tmp.get_Box(), 'Pos X: ', tmp.getPosX_Box(), 'Pos Y: ' , tmp.getPosY_Box())
             tmp = tmp.getNext_Box()
     
     def show_Boxes(self, name , code):
@@ -52,29 +59,29 @@ class Boxes_List():   #lista doblemente enlazada
         #bgcolor="red:violet"
         #fillcolor="blue:cyan"
         #fillcolor="red:yellow"
-
-        strGrafica = 'digraph G { \n graph [pad="1" bgcolor="purple:pink" style="filled" nodesep="0.5" ranksep="0.1" penwidth="3"] \n'
-        strGrafica += 'label = "Nombre Piso: {} Codigo Piso: {}" fontname="Arial Black" fontsize="20pt"  \n'.format(name,code)
-        strGrafica += 'node [style = filled shape = box ] \n'
-        strGrafica += 'edge [dir="both" arrowsize = "0.3"] \n'
+ 
+        strGrafica = 'digraph G { \n graph [pad="1" bgcolor="purple:pink" style="filled" margin="0"  penwidth="3"] \n'
+        strGrafica += 'label = "Nombre Piso: {} Codigo Piso: {}" fontname="Arial Black" fontsize="20pt" \n'.format(name,code)
+        strGrafica += 'node [style = filled shape = box height="1" width="1"] \n'
+        #strGrafica += 'edge [dir="both" arrowsize = "0.3"] \n'
 
         while tmp != None:
-            strGrafica += '{}[fillcolor= "{}" fontcolor = "{}" pos="{},-{}!"] \n'.format(tmp.get_Box(),tmp.getColor_Box(),tmp.getFont_Box(),tmp.getPosY_Box(),tmp.getPosX_Box())
+            strGrafica += '{}[fillcolor= "{}" fontcolor = "{}" pos="{},-{}!"] \n'.format(tmp.get_Box(),tmp.getColor_Box(),tmp.getFont_Box(),tmp.getPosX_Box(),tmp.getPosY_Box())
             tmp = tmp.getNext_Box()
-        
-        tmp = self.boxes_head
-        while tmp != None:
-            if tmp.getNext_Box() is None:
-                None
-            else: 
-                strGrafica += '{}->{};\n'.format(tmp.get_Box(),tmp.getNext_Box().get_Box())
-            tmp = tmp.getNext_Box()
-            
+
+        #tmp = self.boxes_head
+        #while tmp != None:
+        #    if tmp.getNext_Box() is None:
+        #        None
+        #    else: 
+        #        strGrafica += '{}->{};\n'.format(tmp.get_Box(),tmp.getNext_Box().get_Box())
+        #    tmp = tmp.getNext_Box()
+
         strGrafica += ' } '
         documentotxt = 'textoplano.txt'
         with open(documentotxt,'w') as grafica: 
             grafica.write(strGrafica)
-        pdf = 'Patron{}.pdf'.format(name)
+        pdf = 'G{}{}.pdf'.format(name,code)
         os.system( 'neato -Tpdf ' + documentotxt + ' -o ' + pdf )
         webbrowser.open(pdf)
 
@@ -330,30 +337,30 @@ def MiniDom(ruta, linked_list):
                             color = 'W{}'.format(str(contador))
                             codes.color_patterns.add_to_end(color,pos_x,pos_y,Withe,Font_W)
                             contador += 1 
-                            pos_y += 1    
+                            pos_x += 1    
                         elif color == 'B':
                             color = 'B{}'.format(str(contador))
                             codes.color_patterns.add_to_end(color,pos_x,pos_y,Black,Font_B)
                             contador = contador +1
-                            pos_y += 1
+                            pos_x += 1
                         while int(columns) > count_cols:
                             count_cols += 1
                         if color == 'W':
                             color = 'W{}'.format(str(contador))
                             codes.color_patterns.add_to_end(color,pos_x,pos_y,Withe,Font_W)
                             contador = contador +1
-                            pos_y += 1   
+                            pos_x += 1   
                         elif color == 'B':
-                            pos_y += 1
+                            pos_x += 1
                             color = 'B{}'.format(str(contador))
                             codes.color_patterns.add_to_end(color,pos_x,pos_y,Black,Font_B)
-                            pos_y += 1
+                            pos_x += 1
                             contador += 1
-                            pos_x += 1
+                            pos_y += 1
                         count_rows = count_rows + 1
-                        if pos_y >= int(columns):
-                            pos_x += 1
-                            pos_y = 0
+                        if pos_x >= int(columns):
+                            pos_y += 1
+                            pos_x = 0
 
 #----------------------------------------------------------------------------  
 
@@ -366,61 +373,82 @@ def third_menu(linked,decks1,codes1,colorses1):
         print('1. Mostrar patrones') #mostrar lista de patrones general
         print('2. Seleccionar un Patron') #Seleccionar un nuevo patron por codigo 
         print('3. Ver patron seleccionado')
-        print('4. Verificar costo de Cambio') #costo minimo para realizar cambio hacia el nuevo patron
-        print('5. Imprimir Pasos para el cambio') #instrucciones paso a paso para que el robot construya el nuevo patrón al costo mínimo calculado
+        print('4. Imprimir Pasos para el cambio') #instrucciones paso a paso para que el robot construya el nuevo patrón al costo mínimo calculado
+        print('5. Verificar costo de Cambio') #costo minimo para realizar cambio hacia el nuevo patron
         print('6. Imprimir el Nuevo Patron')
         print('7. Volver al menu principal')
         print('=======================')
 
         option = input('> ')
-        name2 = ''
 
         if option == '1':
             try:
-                name2 =  input('Ingrese el nombre del piso que desea ver sus patrones: ')
-                decks1 = linked.get_Decks(name2)
                 decks1.code_patterns.show_Patterns()
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber seleccionado un piso')
         elif option == '2':
             try:
                 codigo  = input('Ingrese el codigo del patron que desea seleccionar: ')
                 codes2 = decks1.code_patterns.get_Patterns(codigo)
                 if codes2 is None:
-                    print('Codigo incorrecto o no registrado')
+                    print('Codigo incorrecto')
                 else:
                     print('Se ha seleccionado el Codigo: ', codes2.getCode_Pattern())
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber seleccionado un piso')
         elif option == '3':
             try:
-                colorses2 = codes2.color_patterns.show_Boxes(name2)
-                colorses2 = codes2.color_patterns.show_Boxes2()
+                codes2.color_patterns.show_Boxes(str(decks1.getName_Deck()),str(codes2.getCode_Pattern()) )
+                #codes2.color_patterns.show_Boxes2()
+                print(('Se ha impreso el Piso {} con codigo {}').format(decks1.getName_Deck(),codes2.getCode_Pattern()))
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber seleccionado un patron')
         elif option == '4':
 
-            #piso 1
-            colores1 = colorses1
-
-            #piso 1  --> piso 2
-
-            #piso 2
-            colores2 = colorses2
-
-            Blanco = 'W'
-            Negro = 'B'
-
             #algoritmo que cambia los colores segun las referencias de las pociciones
+
+            color1 = codes1.color_patterns.boxes_head
+            color2 = codes2.color_patterns.boxes_head
+
+            costo = 0
+        
+            #piso 1  --> piso 2
+            while color1 != None:
+                while color2 != None:
+                    if color1.getColor_Box() == color2.getColor_Box():
+                        pass
+                    else:
+                        #color 1
+                        x1 = color1.getPosY_Box()
+                        y1 = color1.getPosX_Box()
+                        #color 2
+                        x2 = color2.getPosY_Box()
+                        y2 = color2.getPosX_Box()
+                        #color1 --> color2
+
+                        if codes1.color_patterns.get_Boxs_By_Pos((x1)+1,y1) == codes2.color_patterns.get_Boxs_By_Pos((x2),y2) or codes1.color_patterns.get_Boxs_By_Pos((x1)-1,y1) == codes2.color_patterns.get_Boxs_By_Pos((x2),y2) or codes1.color_patterns.get_Boxs_By_Pos(x1,(y1)+1) == codes2.color_patterns.get_Boxs_By_Pos(x2,(y2)) or codes1.color_patterns.get_Boxs_By_Pos(x1,(y1)-1) == codes2.color_patterns.get_Boxs_By_Pos(x2,(y2)):
+                            print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                            color1.setColor_Box(color2.getColor_Box())
+                            color1.setFont_Box(color2.getColor_Box())
+                            costo += int(decks1.getSlide_Deck())
+                        else:
+                            print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosY_Box(),color1.getPosX_Box()))
+                            color1.setColor_Box(color2.getColor_Box())
+                            color1.setFont_Box(color2.getColor_Box())
+                            costo += int(decks1.getFlip_Deck())
+                    color1 = color1.getNext_Box()
+                    color2 = color2.getNext_Box()
             
+
         elif option == '5':
-            pass
+            print(('El costo total para el cambio es de: Q. {}').format(costo))
         elif option == '6':
             try:
-                codes2.color_patterns.show_Boxes()
-                codes2.color_patterns.show_Boxes2()
+                codes1.color_patterns.show_Boxes(str(decks1.getName_Deck()),str(codes1.getCode_Pattern()))
+                #codes1.color_patterns.show_Boxes2()
+                print(('Se ha impreso el Piso {} con codigo {}').format(decks1.getName_Deck(),codes1.getCode_Pattern()))
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber realizado el cambio de patrones')
         elif option == '7':
             main_menu(linked)
             break
@@ -447,42 +475,40 @@ def second_menu(linked):
         name1 = ''
         codigo = ''
 
-
         if option == '1':
             try:
                 name1 =  input('Ingrese el nombre del piso que desea seleccionar: ')
                 decks1 = linked.get_Decks(name1)
                 if decks1 is None:
-                    print('Nombre incorrecto o no registrado')
+                    print('Nombre incorrecto')
                 else:
                     print('Se ha seleccionado el piso: ', decks1.getName_Deck())
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber cargado la data')
         elif option == '2':
             try:
                 decks1.code_patterns.show_Patterns()
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber seleccionado un piso')
 
         elif option == '3':
             try:
                 codigo  = input('Ingrese el codigo del patron que desea seleccionar: ')
                 codes1 = decks1.code_patterns.get_Patterns(codigo)
                 if codes1 is None:
-                    print('Codigo incorrecto o no registrado')
+                    print('Codigo incorrecto')
                 else:
                     print('Se ha seleccionado el Codigo: ', codes1.getCode_Pattern())
             except:
-                print('No sea mula cargue esas mierdas primero :)')
+                print('Asegurese de haber cargado un patron')
         elif option == '4':
                 colorses1 = codes1.color_patterns.show_Boxes(str(decks1.getName_Deck()),str(codes1.getCode_Pattern()) )
-                colorses1 = codes1.color_patterns.show_Boxes2()
+                #colorses1 = codes1.color_patterns.show_Boxes2()
+                print(('Se ha impreso el Piso {} con codigo {}').format(decks1.getName_Deck(),codes1.getCode_Pattern()))
         elif option == '5':
-            try:
-                third_menu(linked,decks1,codes1,colorses1)
-                break
-            except:
-                print('No sea mula cargue esas mierdas primero :)')
+
+            third_menu(linked,decks1,codes1,colorses1)
+            break
             
         elif option == '6':
             main_menu(linked)
