@@ -414,67 +414,67 @@ def third_menu(linked: Deck_List,decks1: Deck,codes1: Pattern,colorses1: Box):
                         pass
                     else:
                         #color 1
-                        x1 = color1.getPosY_Box()
-                        y1 = color1.getPosX_Box()
+                        x1 = int(color1.getPosY_Box())
+                        y1 = int(color1.getPosX_Box())
                         #color 2
-                        x2 = color2.getPosY_Box()
-                        y2 = color2.getPosX_Box()
+                        x2 = int(color2.getPosY_Box())
+                        y2 = int(color2.getPosX_Box())
                         #color1 --> color2
 
                         #if decks1.getFlip_Deck() >= decks1.getSlide_Deck():
-                        if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2) and codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2):          
+                        if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2) and codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                             color1.setColor_Box(color2.getColor_Box())
                             color1.setFont_Box(color2.getColor_Box())
-                            print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                            print(('Se ha realizado un Slide Horizontal en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                             costo += int(decks1.getSlide_Deck())
-                        if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2) and codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
+                        elif codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2) and codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                             color1.setColor_Box(color2.getColor_Box())
                             color1.setFont_Box(color2.getColor_Box())
-                            print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                            print(('Se ha realizado un Slide Horizontal en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                             costo += int(decks1.getSlide_Deck())
                         if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2) and codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                             color1.setColor_Box(color2.getColor_Box())
                             color1.setFont_Box(color2.getColor_Box())
-                            print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosY_Box(),color1.getPosX_Box()))
+                            print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                             costo += int(decks1.getFlip_Deck())
                         if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2) and codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                             if decks1.getFlip_Deck() > decks1.getSlide_Deck():
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                                print(('Se ha realizado un Slide Horizontal en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getSlide_Deck())
                             else: 
                                 decks1.getFlip_Deck() < decks1.getSlide_Deck()
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                                print(('Se ha realizado un Slide Horizontal en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getSlide_Deck())
-                        if codes1.color_patterns.get_Boxs_By_Pos((decks1.getColumn_Deck()),y1):
+                        if codes1.color_patterns.get_Boxs_By_Pos(int(decks1.getColumn_Deck()),y1):
                             if codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosY_Box(),color1.getPosX_Box()))
+                                print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getFlip_Deck())
-                            if codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
+                            if codes1.color_patterns.get_Boxs_By_Pos(x1,y1-1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                                print(('Se ha realizado un Slide Vertical en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getSlide_Deck())
-                        if codes1.color_patterns.get_Boxs_By_Pos(x1,(decks1.getRow_Deck())):
+                        elif codes1.color_patterns.get_Boxs_By_Pos(x1,int(decks1.getRow_Deck())):
                             if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) == codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosY_Box(),color1.getPosX_Box()))
+                                print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getFlip_Deck())
                             if codes1.color_patterns.get_Boxs_By_Pos(x1+1,y1) != codes2.color_patterns.get_Boxs_By_Pos(x2,y2):
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Slide en el Patron: {} desde la coordenada: X: {} Y: {} hacia la coordenada X: {} Y: {}').format(codes1.getCode_Pattern(),color2.getPosX_Box(),color2.getPosY_Box(),color1.getPosX_Box(),color1.getPosY_Box()))
+                                print(('Se ha realizado un Slide Horizontal en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getSlide_Deck())
-                        if codes1.color_patterns.get_Boxs_By_Pos((decks1.getColumn_Deck()),(decks1.getRow_Deck())):
+                        if codes1.color_patterns.get_Boxs_By_Pos(int(decks1.getColumn_Deck()),int(decks1.getRow_Deck())):
                                 color1.setColor_Box(color2.getColor_Box())
                                 color1.setFont_Box(color2.getColor_Box())
-                                print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosY_Box(),color1.getPosX_Box()))
+                                print(('Se ha realizado un Flip en el Patron: {} en la coordenada: X: {} Y: {}').format(codes1.getCode_Pattern(),color1.getPosX_Box(),color1.getPosY_Box()))
                                 costo += int(decks1.getFlip_Deck())
                     color1 = color1.getNext_Box()
                     color2 = color2.getNext_Box()
