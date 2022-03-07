@@ -298,13 +298,45 @@ def MiniDom(ruta, linked_list):
 
         for a in rows:
             rows = a.firstChild.data
+            if int(rows) < 1:
+                print('!!!      ===>     ADVERTENCIA      <===     !!!')
+                print('Un valor de filas es menor que 1')
+                print('Esto causara que la este piso no pueda mostarse')
+                print('Verifique los datos de carga antes de continuar')
+
+        for b in columns:
+            columns = b.firstChild.data
+            if int(columns) < 1:
+                print('!!!      ===>     ADVERTENCIA      <===     !!!')
+                print('El valor de las columnas es menor que 1')
+                print('Esto causara que la este piso no pueda mostarse')
+                print('Verifique los datos de carga antes de continuar')
+
+        for c in flip:
+            flip_price = c.firstChild.data
+            if int(flip_price) < 1:
+                print('!!!      ===>     ADVERTENCIA      <===     !!!')
+                print('Un valor del flip es menor que 1')
+                print('Esto causara defectos en los calculos de costes')
+                print('Verifique los datos de carga antes de continuar')
+                
+        for d in slide:
+            slide_price = d.firstChild.data
+            if int(slide_price) < 1:
+                print('!!!      ===>     ADVERTENCIA      <===     !!!')
+                print('Un valor del slide es menor que 1')
+                print('Esto causara defectos en los calculos de costes')
+                print('Verifique los datos de carga antes de continuar')
+        '''''
+        for a in rows:
+            rows = a.firstChild.data
         for b in columns:
             columns = b.firstChild.data
         for c in flip:
             flip_price = c.firstChild.data
         for d in slide:
             slide_price = d.firstChild.data
-
+        '''''
         decks = linked_list.add_to_end(deck_name,rows,columns,flip_price,slide_price)
 
         patternses = deck.getElementsByTagName('patrones')
