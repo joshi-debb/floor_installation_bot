@@ -559,7 +559,7 @@ def second_menu(linked):
                 print('Asegurese de haber cargado la data')
         elif option == '2':
             try:
-                decks1.code_patterns.show_Patterns()
+               decks1.code_patterns.show_Patterns()
             except:
                 print('Asegurese de haber seleccionado un piso')
 
@@ -574,8 +574,8 @@ def second_menu(linked):
             except:
                 print('Asegurese de haber cargado un patron')
         elif option == '4':
-                colorses1 = codes1.color_patterns.show_Boxes(str(decks1.getName_Deck()),str(codes1.getCode_Pattern()) )
-                #colorses1 = codes1.color_patterns.show_Boxes2()
+                #colorses1 = codes1.color_patterns.show_Boxes(str(decks1.getName_Deck()),str(codes1.getCode_Pattern()) )
+                colorses1 = codes1.color_patterns.show_Boxes2()
                 print(('Se ha impreso el Piso {} con codigo {}').format(decks1.getName_Deck(),codes1.getCode_Pattern()))
         elif option == '5':
 
@@ -604,7 +604,7 @@ def main_menu(linked):
         option = input('> ')
 
         if option == '1':
-            MiniDom('./Files/Prueba.xml', linked)
+            MiniDom('./Files/archivo1.xml', linked)
             print('La data se ha cargado!')
         elif option == '2':
             print('Pisos Cargados: ')

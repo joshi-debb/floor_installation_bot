@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<pisosArtesanales>
+    <piso nombre="cocina">
+        <R>5</R>
+        <C>4</C>
+        <F>6</F>
+        <S>2</S>
+        <patrones>
+            <patron codigo="cod41">WWWWBBBWWBBWWWBWWWBW</patron>
+            <patron codigo="cod42">WWWWBBBWWWBBBWWWBBBW</patron>
+            <patron codigo="cod43">BBWWBBWWBBWWBBWWBBWW</patron>
+        </patrones>
+    </piso>
+    <piso nombre="Salon">
+            <R>9</R>
+            <C>1</C>
+            <F>323</F>
+            <S>155</S>
+            <patrones>
+                    <patron codigo="C20">BWWWBBWWB</patron>
+                    <patron codigo="C30">BBWWBBWBB</patron>
+                    <patron codigo="C40">BBBWWWBBB</patron>
+                    <patron codigo="C50">WBWBWBWBW</patron>
+            </patrones>
+    </piso>
+    <piso nombre="cuarto">
+        <R>5</R>
+        <C>6</C>
+        <F>5</F>
+        <S>4</S>
+        <patrones>
+            <patron codigo="cod41">WWWBBWWWBBWWWBBWWWBBWWWBBWWWBB</patron>
+            <patron codigo="cod42">WWWWBBBWWWWWBBBWWWWBBBWWWWBBBW</patron>
+            <patron codigo="cod43">WBWBWWBBWWBBWBWBWWBBWWBBWBWBWW</patron>
+        </patrones>
+    </piso>
+    <piso nombre="pasillo">
+        <R>15</R>
+        <C>4</C>
+        <F>20</F>
+        <S>10</S>
+        <patrones>
+            <patron codigo="cod41">WWWWWWBBBBBBBBBBBBBBBBBBBBBWWWWBBBBBBBBBWWWWWWWWWWWWBBBBWWBW</patron>
+            <patron codigo="cod42">WWBBBBBBWWWBBBBBBWWWWWWWWWWBBBBBBBWWWBBBWWWWBBWWWBWWBWBBWBWB</patron>
+            <patron codigo="cod43">WWWWWWWWWWWWWWBBBBBWWWWWWWWWBBBWWWWWBBBBWBBBBBWWBWWWBBWBWBWB</patron>
+        </patrones>
+    </piso>
+</pisosArtesanales>
